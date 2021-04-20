@@ -54,9 +54,19 @@ namespace PensionDisbursement.Repository
                 finalamount = amount -550;
             }
 
-            if (input.PensionAmount==finalamount)
+            if (pensionerDetail.BankType == 1)
             {
-                return 10;
+                if (input.PensionAmount == finalamount && input.BankCharge == 500)
+                {
+                    return 10;
+                }
+            }
+            if (pensionerDetail.BankType == 2)
+            {
+                if (input.PensionAmount == finalamount && input.BankCharge == 550)
+                {
+                    return 10;
+                }
             }
            
             else if (input.PensionAmount==amount&&pensionerDetail.BankType==1)
